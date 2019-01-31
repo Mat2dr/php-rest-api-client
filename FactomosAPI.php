@@ -95,6 +95,11 @@ class Factomos {
 
 
     /// CONTACT
+    public function listContacts($url = '/contacts',  $body){
+        $response = $this->get($url, $body);
+        return json_decode((string)$response->getBody());
+    }
+    
     public function getContact($contact_pid){
         $response = $this->get('/contacts/'.$contact_pid);
         return json_decode((string)$response->getBody());
@@ -109,6 +114,13 @@ class Factomos {
         $response = $this->post('/contacts', $body);
         return json_decode((string)$response->getBody());
     }
+    
+    // ARTICLES
+    public function listArticles($url = '/articles',  $body){
+        $response = $this->get($url, $body);
+        return json_decode((string)$response->getBody());
+    }
+    
 
 
 }
